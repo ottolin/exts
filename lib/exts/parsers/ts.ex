@@ -19,7 +19,7 @@ defmodule Exts.Parser.Ts do
     parse_ts(rest, updated_state)
   end
 
-  defp parse_ts(<<_::8, rest::binary>> = data, state) when byte_size(rest) >= 188 do
+  defp parse_ts(<<_::8, rest::binary>> = _data, state) when byte_size(rest) >= 188 do
     parse_ts(rest, state)
   end
 
@@ -71,7 +71,7 @@ defmodule Exts.Parser.Ts do
     # update cc error count
     statistics =
       cond do
-        pid < 8191 && cur_cc != exp_cc ->
+        pid < 8191 && exp_cc != -1 && cur_cc != exp_cc ->
           %{statistics | ccerrors: statistics.ccerrors + 1}
         True -> statistics
       end
