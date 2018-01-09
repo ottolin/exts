@@ -1,19 +1,11 @@
 # Exts
 
-**TODO: Add description**
+Transport Stream parser written in Elixir
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `exts` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [{:exts, "~> 0.1.0"}]
-end
+## Compile and run
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/exts](https://hexdocs.pm/exts).
-
+git clone https://github.com/ottolin/exts.git
+cd exts
+mix escript.build
+./exts
+```
