@@ -207,6 +207,10 @@ defmodule Exts.Parser.Psi do
     get_pgm(pat_payload, [])
   end
 
+  defp get_pgm(<<0::16, _reserved::3, _nit_pid::13, rest::binary>>, programs) do
+    get_pgm(rest, programs)
+  end
+
   defp get_pgm(<<program_number::16, _reserved::3, pid::13, rest::binary>>, programs) do
     get_pgm(rest, [{pid, program_number} | programs])
   end
